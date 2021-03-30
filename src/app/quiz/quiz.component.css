@@ -1,0 +1,28 @@
+.card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+}
+body{
+    background-image: url("/assets/images/Quizbackground.jpg");
+}
+#circle{
+    background-color: royalblue;
+    border-radius: 100px;
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    top: 100px; left: 50px;
+    z-index: 9;
+    text-align: center;
+    color: white;
+    line-height: 120px;
+    font-size: 50px;
+
+
+    
+}

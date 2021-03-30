@@ -1,0 +1,114 @@
+<body>
+<div style="margin-bottom: 30px;">
+  <nav style="background-color:rgb(61, 60, 60); height: 40px;">
+  <ul style="list-style-type: none; display: inline-flex;">
+    <li style="margin-left: 5px; margin-top: 5px; ">
+      <div class="row">
+        <div class="col-6" >
+          <select [(ngModel)]="quizName" (change)="loadQuiz(quizName)" style=" border-radius: 20px; height: 30px;">
+            <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
+          </select>
+        </div>
+    </div>
+    </li>
+    <li style="margin-left: 400px;">
+      <div><h2 class="font-weight-normal" style="color: white;">{{quiz.name}}</h2></div>
+    </li>
+    <li style="margin-left: 320px; margin-top: 5px;">
+      <div *ngIf="mode!='result'" class="badge badge-warning" style=" height: 30px; font-size: 20px;">Time: {{ellapsedTime}} / {{duration}}</div>
+    </li>
+  </ul>
+  </nav>
+  
+  
+
+<!-- question segment head -->
+
+<div class="card" style="width: 800px; margin-top: 20px;">
+  <div *ngIf="mode=='quiz'" class="card-header" style="background-color: #d7d8db;" >
+    <ul class="nav nav-tabs card-header-tabs" >
+      <li class="nav-item">
+        <p class="nav-link active" aria-current="true">Active</p>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-success" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);" style="margin-left: 10px; border-radius: 20px; width: 50px;"><strong>&larr;</strong></button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-success" (click)="goTo(pager.index + 1);" style="margin-left: 10px; border-radius: 20px; width: 50px;"><strong>&rarr;</strong></button>
+      </li>
+      <div style="margin-left: 100px;"><strong>Question {{pager.index + 1}} : {{pager.count}}</strong></div>
+      <li><button class="btn btn-info" (click)="mode = 'review'" style="border-radius: 20px; margin-left: 260px;" >Review</button></li>
+    </ul>
+    
+  </div>
+  <div class="card-body"> <!-- question segment body -->
+    
+    <div id="quiz">
+      <hr />
+      <div class="container">
+        <div *ngIf="mode=='quiz' && quiz">
+          <div *ngFor="let question of filteredQuestions;">
+            <h3 class="font-weight-normal">{{pager.index + 1}}.
+              <span [innerHTML]="question.name"></span>
+            </h3>
+            <div class="row text-left options">
+              <div class="col-6" *ngFor="let option of question.options">
+                <div class="option" style="background-color: white;">
+                  <label class="font-weight-normal" [attr.for]="option.id" >
+                    <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" /> {{option.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+      <div class="row text-center" *ngIf="mode=='review'">
+        <div class="col-4 cursor-pointer" *ngFor="let question of quiz.questions; let index = index;">
+          <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-success': 'bg-secondary' }}" style="border-radius: 30px;">{{index + 1}}. {{ isAnswered(question) }}</div>
+        </div>
+        <div style="position: absolute; top:4px; right: 20px;"><button class="btn btn-outline-info" (click)="mode = 'quiz'" style="border-radius: 15px;"><strong>&#8612; Back</strong></button></div>
+      </div>
+      
+      <div class="result" *ngIf="mode=='result'">
+          <div id="circle">{{countC*10-countIC1*5}}</div>
+          <div><google-chart [data]="pieChart"></google-chart></div>
+          <hr />
+          <div>
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Attempted Questions
+                <span class="badge bg-primary rounded-pill"><article style="color: white;">{{countA}}</article></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                UnAttempted Question
+                <span class="badge bg-primary rounded-pill"><article style="color: white;">{{countUA}}</article></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Correct Questions<h6 style="color:green;">+10</h6>
+                <span class="badge bg-primary rounded-pill"><article style="color: white;">{{countC}}</article></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Incorrect Questions<h6 style="color:red;"><strong>-5</strong></h6>
+                <span class="badge bg-primary rounded-pill"><article style="color: white;">{{countIC1}}</article></span>
+              </li>
+            </ul>
+          </div>
+        
+        
+        <div style="position: absolute; top: 4px; left: 85%;"><a class="btn btn-danger" [routerLink]="['/home']" role="button" style="border-radius: 20px;"><i class="far fa-times-circle"></i> Close</a></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div *ngIf="mode!='result'">
+  <button class="btn btn-danger" (click)="usersubmit();" (click)="pieChart" style=" margin-top: 10px; margin-left:1100px; border-radius: 20px; border:solid #01820a; width: 100px;">Submit</button>
+</div>
+
+
+</div>
+<app-footer></app-footer>
+</body>

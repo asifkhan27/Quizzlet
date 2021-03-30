@@ -1,0 +1,29 @@
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color:#01820a;">
+                <img src="assets/images/logo.png" alt="" width="30px" height="30px" class="d-inline-block align-top">
+                Quizzlet
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" >
+              <a class="nav-link active" aria-current="page" [routerLink]="['/home']" style="color:#c70000;"><h5><i class="fas fa-home">Home</i></h5></a>
+              <a class="nav-link" [routerLink]="['/quiz']" style="color:#c70000;"><h5><i class="fab fa-leanpub">Quiz</i></h5></a>
+              <a class="nav-link" [routerLink]="['/aboutus']" style="color:#c70000;"><h5><i class="far fa-address-card">AboutUs</i></h5></a>
+              <a class="nav-link" [routerLink]="['/contactus']" style="color:#c70000;"><h5><i class="fas fa-address-book">ContactUs</i></h5></a>
+              
+              <div class="container-fluid">
+                <span class="navbar-text" >
+                  <i style="margin-left: 200px;color:#01820a;"><img src="assets/images/logo2.gif" alt="" width="30px" height="30px" class="d-inline-block align-top" style="border-radius: 50px;"> Bring the change or Be the change....</i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+</div>
+<router-outlet></router-outlet>

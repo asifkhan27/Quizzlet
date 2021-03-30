@@ -1,0 +1,11 @@
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+  }
+  h5:hover{
+      color: #01820a;
+  }
+  .nav-link{
+      margin-right: 20px;
+      margin-left: 20px;
+  }

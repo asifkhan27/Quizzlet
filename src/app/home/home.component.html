@@ -1,0 +1,61 @@
+<head>
+    <title>Quizzlet</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="jumbotron bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%), url(assets/images/jumbotronBackground.jpg); height: 250px;">
+          <div class="container">
+          <h1 class="display-4">Learning Season is Here 📝</h1><br>
+          <p class="lead">An LMS is a tool that manages the processes of creating, hosting and distributing training questions. The tool allows users to check their knowledge on different types of technologies such as java, Angular and others, through quizzes, and tests.</p>
+          <hr class="my-4">
+          <div class="container" id="hn" >Have any questions? We'd love to hear from you. <a class="btn btn-outline-info" [routerLink]="['/contactus']" role="button" id="shopbutton">Contact Us</a></div>
+            </div>
+        </div>
+        </div>
+
+        <div>
+            <div><h4 style="margin-left: 30px;font-family: Courier, monospace;">Recommended Courses</h4>
+                <h6 style="margin-left: 30px;font-family: monospace;">Explore learning opportunities grouped by your role or by your solutions area.</h6>
+            </div>
+            
+            <figure style="margin-left: 50px;" >
+                <a href="https://angular.io/" >
+                    <div class="item"><img src="assets/images/Angular.png" id="category"/>
+                        <h6 style="color: #01820a;">Angular</h6>
+                    </div>
+                </a>
+                <a href="https://www.w3schools.com/cs/" >
+                    <div class="item"><img src="assets/images/chash.jpg" id="category"/>
+                        <h6 style="color: #01820a;">C#</h6>
+                    </div>
+                </a>
+                <a href="https://www.codecademy.com/learn/learn-java" >
+                    <div class="item"><img src="assets/images/java.jpeg" id="category"/>
+                        <h6 style="color: #01820a;">Java</h6>
+                    </div>
+                </a>
+                <a href="https://www.djangoproject.com/" >
+                    <div class="item"><img src="assets/images/django.jpg" id="category"/>
+                        <h6 style="color: #01820a;">Django</h6>
+                    </div>
+                </a>
+                <a href="https://www.w3schools.com/html/html_scripts.asp" >
+                    <div class="item"><img src="assets/images/html.png" id="category"/>
+                        <h6 style="color: #01820a;">HTML/CSS/JS</h6>
+                    </div>
+                </a>
+                <a href="https://www.tutorialspoint.com/plsql/index.htm" >
+                    <div class="item"><img src="assets/images/plsql.jpg" id="category"/>
+                        <h6 style="color: #01820a;">PLSQL</h6>
+                    </div>
+                </a>
+                <a href="https://www.python.org/" >
+                    <div class="item"><img src="assets/images/python.jpg" id="category"/>
+                        <h6 style="color: #01820a;">Python</h6>
+                    </div>
+                </a>
+                
+                </figure>
+        </div>
+    </body>
+  <app-footer></app-footer>

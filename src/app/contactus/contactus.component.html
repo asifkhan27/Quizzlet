@@ -1,0 +1,59 @@
+<div class="container">
+    <form ngNoForm class="row g-3" action="home">
+      <div class="col-md-4">
+        <label for="validationDefault01" class="form-label"><i class="fas fa-user-edit"></i> First name</label>
+        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label"><i class="fas fa-user-edit"></i> Last name</label>
+        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+      </div>
+      
+      <div class="col-md-6">
+        <label for="validationDefault03" class="form-label"><i class="fas fa-envelope"></i> Email</label>
+        <input type="text" class="form-control" id="validationDefault03" required Last placeholder="Email">
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label"><i class="fas fa-globe"></i> Country</label>
+        <select class="form-select" id="validationDefault04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>India</option>
+          <option>USA</option>
+          <option>Russia</option>
+          <option>Japan</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label"><i class="fas fa-map-marker-alt"></i> Zip Code</label>
+        <input type="text" class="form-control" id="validationDefault05" required>
+      </div>
+      <div class="mb-3" style="width: 600px;"> 
+        <label for="validationTextarea" class="form-label"><i class="fas fa-sticky-note"></i> Message</label>
+        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Your comments" required></textarea>
+  
+        <div class="invalid-feedback">
+          Please enter a message in the textarea.
+        </div></div>
+  
+        <label class="form-check-label" for="invalidCheck2" style="margin-left: 40px;margin-top: 40px;">
+          <i class="fas fa-paperclip"></i> Attachments
+        </label>
+        <div class="mb-3" style="margin-left: 20px;margin-top: 40px;">
+          <input type="file" class="form-control" aria-label="file example" style="height: 45px;">
+          <div class="invalid-feedback">Example invalid form file feedback</div>
+        </div>
+  
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-outline-success" type="submit" style="margin-top: 20px;">Submit form</button>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
